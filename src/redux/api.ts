@@ -4,11 +4,14 @@ export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://teamway.local/api/v1' }),
   endpoints: (builder) => ({
-    getQuestions: builder.query<GetQuestionsApiResponse, void>({
-      query: () => `/questions/1`,
+    getQuizzes: builder.query<GetQuizzesApiResponse, void>({
+      query: () => '/quizzes',
+    }),
+    getQuestions: builder.query<GetQuestionsApiResponse, GetQuestionsApiArg>({
+      query: ({ quizId }) => `/questions/${quizId}`,
     }),
     getResult: builder.query<GetResultApiResponse, GetResultApiArg>({
-      query: ({ score }) => `/result/1?score=${score}`,
+      query: ({ score, quizId }) => `/result/${quizId}?score=${score}`,
     }),
   }),
 });
@@ -26,13 +29,29 @@ export interface Question {
 
 export type GetQuestionsApiResponse = Question[];
 
+export interface GetQuestionsApiArg {
+  quizId: number;
+}
+
 export interface GetResultApiResponse {
   title: string;
   text: string;
 }
 
 export interface GetResultApiArg {
+  quizId: number;
   score: number;
 }
 
-export const { useGetQuestionsQuery, useGetResultQuery } = api;
+export interface Quiz {
+  id: number;
+  title: string;
+}
+
+export type GetQuizzesApiResponse = Quiz[];
+
+export const {
+  useGetQuizzesQuery,
+  useGetQuestionsQuery,
+  useGetResultQuery,
+} = api;

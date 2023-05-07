@@ -1,3 +1,10 @@
+tw_quiz.get_quizzes:
+  path: /api/v1/quizzes
+  defaults:
+    _controller: Drupal\tw_quiz\Controller\QuizController::getQuizzes
+  requirements:
+    _permission: 'access content'
+
 tw_quiz.get_questions:
   path: /api/v1/questions/{node}
   defaults:

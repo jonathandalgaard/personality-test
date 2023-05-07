@@ -8,5 +8,13 @@
     text-align: center;
     width: var(--content-width);
     min-height: 9rem;
+
+    .back-link {
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: .35rem;
+    }
   }
 }

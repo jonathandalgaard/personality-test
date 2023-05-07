@@ -3,6 +3,7 @@
 namespace Drupal\tw_quiz\Controller;
 
 use Drupal\node\NodeInterface;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +14,39 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  * Provides endpoints for getting quiz questions.
  */
 class QuizController extends ControllerBase {
+
+  /**
+   * Gets a list of available quizzes.
+   *
+   * @return \Drupal\Core\Cache\CacheableJsonResponse
+   *   The list of available quizzes.
+   */
+  public function getQuizzes() {
+    $node_storage = $this->entityTypeManager()->getStorage('node');
+    $quiz_ids = $node_storage->getQuery()
+      ->accessCheck()
+      ->condition('type', 'quiz')
+      ->condition('status', NodeInterface::PUBLISHED)
+      ->execute();
+    if (empty($quiz_ids)) {
+      return new CacheableJsonResponse([]);
+    }
+
+    $quizzes = [];
+    /** @var \Drupal\node\NodeInterface $node */
+    foreach ($node_storage->loadMultiple($quiz_ids) as $node) {
+      $quizzes[] = [
+        'id' => $node->id(),
+        'title' => $node->getTitle(),
+      ];
+    }
+
+    $response = new CacheableJsonResponse($quizzes);
+    $cache_metadata = new CacheableMetadata();
+    $cache_metadata->addCacheTags(['node_list:quiz']);
+    $response->addCacheableDependency($cache_metadata);
+    return $response;
+  }
 
   /**
    * Get quiz questions from a given node.
@@ -66,11 +100,11 @@ class QuizController extends ControllerBase {
       throw new BadRequestHttpException('Invalid quiz node provided');
     }
 
-    $score = $request->query->get('score');
-    if (!$score) {
+    if (!$request->query->has('score')) {
       throw new BadRequestHttpException('No score provided');
     }
 
+    $score = $request->query->get('score');
     $final_result = [];
     foreach ($node->get('field_results')->referencedEntities() as $result) {
       if ($score > $result->get('field_score')->value) {
