@@ -1,13 +1,18 @@
-:root {
+main {
   --color-background: #fcfcfc;
-  --color-text: #0c0c0c;
+  --color-text: #2d2d2d;
   --color-primary: #1e62b1;
   --content-width: 45rem;
+
+  &.dark {
+    --color-background: #2d2d2d;
+    --color-text: #fcfcfc;
+  }
+
+  color: var(--color-text);
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
   margin: 0;
 }
 
@@ -29,4 +34,15 @@ body {
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.mode-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: .25rem;
+  border-radius: .375rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-background);
 }
