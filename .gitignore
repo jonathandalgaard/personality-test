@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+backend/vendor
+backend/web/modules/contrib
+backend/web/core
+backend/web/sites/default/settings.local.php
+backend/web/sites/default/files/
+backend/web/sites/default/default.*
+backend/web/sites/example.*
