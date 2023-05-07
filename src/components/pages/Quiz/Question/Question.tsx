@@ -36,7 +36,7 @@ function Question({ question, submitAnswer }: QuestionProps) {
               onClick={() => submitAnswer(Number(option.score))}
               ref={(element) => optionsRef.current[index] = element}
             >
-              {option.title}
+              <span className="option-index">{index + 1}.</span> {option.title}
             </button>
           </li>
         ))}

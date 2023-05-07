@@ -4,11 +4,17 @@ import Quiz from 'components/pages/Quiz/Quiz';
 import './App.scss'
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 
+type Mode = 'light' | 'dark';
+
 function App() {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const [mode, setMode] = useState<Mode>(localStorage.getItem('currentMode') as Mode || 'light');
+
+  useEffect(() => {
+    localStorage.setItem('currentMode', mode);
+  }, [mode]);
 
   return (
     <Provider store={store}>
