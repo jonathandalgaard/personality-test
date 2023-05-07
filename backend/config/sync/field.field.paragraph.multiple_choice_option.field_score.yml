@@ -1,0 +1,23 @@
+uuid: b531992c-5180-4d79-8034-b03f5fc5f791
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_score
+    - paragraphs.paragraphs_type.multiple_choice_option
+id: paragraph.multiple_choice_option.field_score
+field_name: field_score
+entity_type: paragraph
+bundle: multiple_choice_option
+label: Score
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

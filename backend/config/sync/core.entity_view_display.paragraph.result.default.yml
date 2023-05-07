@@ -1,0 +1,41 @@
+uuid: 97eb3de0-f46c-4403-9e81-109397eb7746
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.result.field_score
+    - field.field.paragraph.result.field_text
+    - field.field.paragraph.result.field_title
+    - paragraphs.paragraphs_type.result
+  module:
+    - text
+id: paragraph.result.default
+targetEntityType: paragraph
+bundle: result
+mode: default
+content:
+  field_score:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

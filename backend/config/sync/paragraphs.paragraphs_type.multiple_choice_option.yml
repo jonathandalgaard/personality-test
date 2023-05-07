@@ -1,0 +1,10 @@
+uuid: 62073aef-181b-48dd-bb94-73cb7b776bc2
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_choice_option
+label: 'Multiple choice option'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

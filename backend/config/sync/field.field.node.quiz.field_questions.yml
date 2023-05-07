@@ -1,0 +1,37 @@
+uuid: fddc6913-b467-4d2b-b40f-124c29ac4296
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_questions
+    - node.type.quiz
+    - paragraphs.paragraphs_type.question
+  module:
+    - entity_reference_revisions
+id: node.quiz.field_questions
+field_name: field_questions
+entity_type: node
+bundle: quiz
+label: Questions
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      question: question
+    negate: 0
+    target_bundles_drag_drop:
+      multiple_choice_option:
+        weight: 5
+        enabled: false
+      question:
+        weight: 6
+        enabled: true
+      result:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

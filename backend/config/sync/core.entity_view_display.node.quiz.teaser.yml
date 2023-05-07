@@ -1,0 +1,24 @@
+uuid: 934120ed-ae54-4116-b3b7-63118bb40359
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.quiz.field_questions
+    - field.field.node.quiz.field_results
+    - node.type.quiz
+  module:
+    - user
+id: node.quiz.teaser
+targetEntityType: node
+bundle: quiz
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_questions: true
+  field_results: true

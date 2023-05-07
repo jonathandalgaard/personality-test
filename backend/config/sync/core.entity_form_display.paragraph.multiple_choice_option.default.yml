@@ -1,0 +1,31 @@
+uuid: 926eac6e-e027-4efe-8543-2f7d8b24c3a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multiple_choice_option.field_score
+    - field.field.paragraph.multiple_choice_option.field_title
+    - paragraphs.paragraphs_type.multiple_choice_option
+id: paragraph.multiple_choice_option.default
+targetEntityType: paragraph
+bundle: multiple_choice_option
+mode: default
+content:
+  field_score:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

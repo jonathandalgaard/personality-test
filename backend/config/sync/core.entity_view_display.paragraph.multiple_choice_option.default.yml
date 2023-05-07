@@ -1,0 +1,31 @@
+uuid: 332062c6-aece-47f2-b6b5-d191b8aeebb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multiple_choice_option.field_score
+    - field.field.paragraph.multiple_choice_option.field_title
+    - paragraphs.paragraphs_type.multiple_choice_option
+id: paragraph.multiple_choice_option.default
+targetEntityType: paragraph
+bundle: multiple_choice_option
+mode: default
+content:
+  field_score:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

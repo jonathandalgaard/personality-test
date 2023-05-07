@@ -1,0 +1,23 @@
+uuid: 337649aa-a742-4857-bd73-4b6a41bb62d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_score
+    - paragraphs.paragraphs_type.result
+id: paragraph.result.field_score
+field_name: field_score
+entity_type: paragraph
+bundle: result
+label: Score
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: '<='
+  suffix: ''
+field_type: integer
