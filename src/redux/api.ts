@@ -24,7 +24,7 @@ export interface MultipleChoiceOption {
 
 export interface Question {
   title: string;
-  options: MultipleChoiceOption[];
+  options?: MultipleChoiceOption[];
 }
 
 export type GetQuestionsApiResponse = Question[];

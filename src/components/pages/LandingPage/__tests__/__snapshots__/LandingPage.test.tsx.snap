@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders App correctly 1`] = `
+<article
+  className="landing-page"
+>
+  <ul
+    className="quizzes"
+  >
+    <li>
+      <div
+        className="paper"
+      >
+        <h1>
+          First quiz
+        </h1>
+        <a
+          className="button"
+          href="/quiz/1"
+          onClick={[Function]}
+        >
+          Take the quiz
+        </a>
+      </div>
+    </li>
+    <li>
+      <div
+        className="paper"
+      >
+        <h1>
+          Second quiz
+        </h1>
+        <a
+          className="button"
+          href="/quiz/2"
+          onClick={[Function]}
+        >
+          Take the quiz
+        </a>
+      </div>
+    </li>
+  </ul>
+  <img
+    alt=""
+    className="background-image"
+    src="/stars.jpg"
+  />
+</article>
+`;

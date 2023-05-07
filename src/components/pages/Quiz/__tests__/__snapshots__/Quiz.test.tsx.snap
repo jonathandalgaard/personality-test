@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Quiz correctly 1`] = `
+<article
+  className="quiz-page"
+>
+  <div
+    className="paper"
+  >
+    <a
+      className="back-link"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="lucide lucide-corner-up-left"
+        fill="none"
+        height="1.125em"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+        viewBox="0 0 24 24"
+        width="1.125em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="9 14 4 9 9 4"
+        />
+        <path
+          d="M20 20v-7a4 4 0 0 0-4-4H4"
+        />
+      </svg>
+      Go back
+    </a>
+    <div
+      className="question"
+    >
+      <h2>
+        First question
+      </h2>
+      <ul
+        className="options"
+      >
+        <li>
+          <button
+            className="button"
+            onClick={[Function]}
+          >
+            First option
+          </button>
+        </li>
+        <li>
+          <button
+            className="button"
+            onClick={[Function]}
+          >
+            Second option
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <img
+    alt=""
+    className="background-image"
+    src="/stars.jpg"
+  />
+</article>
+`;

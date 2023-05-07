@@ -11,7 +11,7 @@ function Question({ question, submitAnswer }: QuestionProps) {
     <div className="question">
       <h2>{question.title}</h2>
       <ul className="options">
-        {question.options.map((option) => (
+        {question.options?.map((option) => (
           <li key={option.id}>
             <button
               className="button"

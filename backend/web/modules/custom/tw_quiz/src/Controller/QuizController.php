@@ -107,6 +107,8 @@ class QuizController extends ControllerBase {
     $score = $request->query->get('score');
     $final_result = [];
     foreach ($node->get('field_results')->referencedEntities() as $result) {
+      // Score should be less than or equal to the score set on the
+      // result paragraph.
       if ($score > $result->get('field_score')->value) {
         continue;
       }
