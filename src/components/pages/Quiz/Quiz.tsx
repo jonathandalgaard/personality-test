@@ -34,7 +34,6 @@ function Quiz() {
           : <Question question={questions[currentQuestion]} submitAnswer={submitAnswer} />
         }
       </Paper>
-      <img className="background-image" alt="" src="/stars.jpg" />
     </article>
   );
 }

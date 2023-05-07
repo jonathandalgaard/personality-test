@@ -61,10 +61,5 @@ exports[`Renders Quiz correctly 1`] = `
       </ul>
     </div>
   </div>
-  <img
-    alt=""
-    className="background-image"
-    src="/stars.jpg"
-  />
 </article>
 `;

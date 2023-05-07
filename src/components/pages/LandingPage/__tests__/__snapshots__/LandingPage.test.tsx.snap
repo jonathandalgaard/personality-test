@@ -11,9 +11,9 @@ exports[`Renders App correctly 1`] = `
       <div
         className="paper"
       >
-        <h1>
+        <h2>
           First quiz
-        </h1>
+        </h2>
         <a
           className="button"
           href="/quiz/1"
@@ -27,9 +27,9 @@ exports[`Renders App correctly 1`] = `
       <div
         className="paper"
       >
-        <h1>
+        <h2>
           Second quiz
-        </h1>
+        </h2>
         <a
           className="button"
           href="/quiz/2"
@@ -40,10 +40,5 @@ exports[`Renders App correctly 1`] = `
       </div>
     </li>
   </ul>
-  <img
-    alt=""
-    className="background-image"
-    src="/stars.jpg"
-  />
 </article>
 `;

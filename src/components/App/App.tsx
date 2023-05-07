@@ -18,6 +18,7 @@ function App() {
             ? <SunIcon className="mode-switcher" onClick={() => setMode('dark')} />
             : <MoonIcon className="mode-switcher" onClick={() => setMode('light')} />
           }
+          <img className="background-image" alt="" src="/stars.jpg" />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route

@@ -12,13 +12,12 @@ function LandingPage() {
         {quizzes && quizzes.map((quiz) => (
           <li key={quiz.id}>
             <Paper>
-              <h1>{quiz.title}</h1>
+              <h2>{quiz.title}</h2>
               <Link to={`/quiz/${quiz.id}`} className="button">Take the quiz</Link>
             </Paper>
           </li>
         ))}
       </ul>
-      <img className="background-image" alt="" src="/stars.jpg" />
     </article>
   );
 }
