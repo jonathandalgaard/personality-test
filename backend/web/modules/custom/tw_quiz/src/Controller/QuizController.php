@@ -7,7 +7,6 @@ use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
@@ -28,8 +27,15 @@ class QuizController extends ControllerBase {
       ->condition('type', 'quiz')
       ->condition('status', NodeInterface::PUBLISHED)
       ->execute();
+
+    $response = new CacheableJsonResponse([]);
+    // Response may change when quizzes are changed/created.
+    $cache_metadata = new CacheableMetadata();
+    $cache_metadata->addCacheTags(['node_list:quiz']);
+    $response->addCacheableDependency($cache_metadata);
+
     if (empty($quiz_ids)) {
-      return new CacheableJsonResponse([]);
+      return $response;
     }
 
     $quizzes = [];
@@ -41,10 +47,7 @@ class QuizController extends ControllerBase {
       ];
     }
 
-    $response = new CacheableJsonResponse($quizzes);
-    $cache_metadata = new CacheableMetadata();
-    $cache_metadata->addCacheTags(['node_list:quiz']);
-    $response->addCacheableDependency($cache_metadata);
+    $response->setData($quizzes);
     return $response;
   }
 
@@ -92,7 +95,7 @@ class QuizController extends ControllerBase {
    * @param \Drupal\node\NodeInterface $node
    *   The quiz node to get the results from.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return \Drupal\Core\Cache\CacheableJsonResponse
    *   A JSON response containing the quiz result.
    */
   public function getResult(Request $request, NodeInterface $node) {
@@ -121,10 +124,19 @@ class QuizController extends ControllerBase {
       }
     }
 
-    return new JsonResponse([
+    $response = new CacheableJsonResponse([
       'title' => $final_result->get('field_title')->value,
       'text' => $final_result->get('field_text')->value,
     ]);
+
+    $cache_metadata = new CacheableMetadata();
+    // The query arguments are important when caching, since different scores
+    // will return different results.
+    $cache_metadata->addCacheContexts(['url.query_args']);
+    $response->addCacheableDependency($cache_metadata);
+    $response->addCacheableDependency($node);
+
+    return $response;
   }
 
 }
