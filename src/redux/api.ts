@@ -7,6 +7,9 @@ export const api = createApi({
     getQuestions: builder.query<GetQuestionsApiResponse, void>({
       query: () => `/questions`,
     }),
+    getResult: builder.query<GetResultApiResponse, GetResultApiArg>({
+      query: ({ score }) => `/result?score=${score}`,
+    }),
   }),
 });
 
@@ -23,4 +26,13 @@ export interface Question {
 
 export type GetQuestionsApiResponse = Question[];
 
-export const { useGetQuestionsQuery } = api;
+export interface GetResultApiResponse {
+  title: string;
+  text: string;
+}
+
+export interface GetResultApiArg {
+  score: number;
+}
+
+export const { useGetQuestionsQuery, useGetResultQuery } = api;

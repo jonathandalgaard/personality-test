@@ -3,7 +3,7 @@ import LandingPage from 'components/pages/LandingPage/LandingPage';
 import Quiz from 'components/pages/Quiz/Quiz';
 import './App.scss'
 import { Provider } from 'react-redux';
-import { store } from 'redux/store.ts';
+import { store } from 'redux/store';
 
 function App() {
   return (

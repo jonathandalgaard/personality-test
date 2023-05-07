@@ -1,6 +1,9 @@
-import { useGetQuestionsQuery } from 'redux/api.ts';
+import { useGetQuestionsQuery } from 'redux/api';
 import Question from 'components/pages/Quiz/Question/Question';
 import { useState } from 'react';
+import Result from 'components/pages/Quiz/Result/Result';
+import Paper from 'components/shared/Paper/Paper';
+import './Quiz.scss';
 
 function Quiz() {
   const { data: questions } = useGetQuestionsQuery();
@@ -16,18 +19,15 @@ function Quiz() {
     return null;
   }
 
-  if (!questions[currentQuestion]) {
-    return (
-      <div>
-        Your score is {score}
-      </div>
-    );
-  }
-
   return (
-    <div>
-      <Question question={questions[currentQuestion]} submitAnswer={submitAnswer} />
-    </div>
+    <article className="quiz-page">
+      <Paper>
+        {!questions[currentQuestion]
+          ? <Result score={score} />
+          : <Question question={questions[currentQuestion]} submitAnswer={submitAnswer} />
+        }
+      </Paper>
+    </article>
   );
 }
 
