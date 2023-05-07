@@ -9,6 +9,7 @@ function LandingPage() {
         <h1>Are you an introvert or an extrovert?</h1>
         <Link to="/quiz" className="button">Take the test</Link>
       </Paper>
+      <img className="background-image" alt="" src="/stars.jpg" />
     </article>
   );
 }

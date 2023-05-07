@@ -16,7 +16,7 @@ export const api = createApi({
 export interface MultipleChoiceOption {
   id: number;
   title: string;
-  score: number;
+  score: string;
 }
 
 export interface Question {

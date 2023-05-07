@@ -1,0 +1,21 @@
+.question {
+  h2 {
+    text-align: center;
+  }
+
+  ul {
+    width: 80%;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+
+    li {
+      margin-bottom: .5rem;
+
+      .button {
+        width: 100%;
+        text-align: left;
+      }
+    }
+  }
+}
