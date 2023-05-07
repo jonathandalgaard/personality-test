@@ -1,0 +1,13 @@
+tw_quiz.get_questions:
+  path: /api/v1/questions/{node}
+  defaults:
+    _controller: Drupal\tw_quiz\Controller\QuizController::getQuestions
+  requirements:
+    _permission: 'access content'
+
+tw_quiz.get_result:
+  path: /api/v1/result/{node}
+  defaults:
+    _controller: Drupal\tw_quiz\Controller\QuizController::getResult
+  requirements:
+    _permission: 'access content'

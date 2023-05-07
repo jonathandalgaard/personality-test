@@ -2,13 +2,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: '/api/v1' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://teamway.local/api/v1' }),
   endpoints: (builder) => ({
     getQuestions: builder.query<GetQuestionsApiResponse, void>({
-      query: () => `/questions`,
+      query: () => `/questions/1`,
     }),
     getResult: builder.query<GetResultApiResponse, GetResultApiArg>({
-      query: ({ score }) => `/result?score=${score}`,
+      query: ({ score }) => `/result/1?score=${score}`,
     }),
   }),
 });

@@ -1,0 +1,5 @@
+name: Teamway Quiz
+description: Provides functionality for quizzes.
+type: module
+package: TW
+core_version_requirement: ^9 || ^10
