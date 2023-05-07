@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Result from 'components/pages/Quiz/Result/Result';
 import Paper from 'components/shared/Paper/Paper';
 import { Link, useParams } from 'react-router-dom';
+import Loader from 'components/shared/Loader/Loader';
 import './Quiz.scss';
 
 function Quiz() {
@@ -19,7 +20,11 @@ function Quiz() {
   }
 
   if (!questions) {
-    return null;
+    return (
+      <article className="quiz-page">
+        <Loader />
+      </article>
+    );
   }
 
   return (
